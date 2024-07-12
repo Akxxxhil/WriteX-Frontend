@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BACKEND_ORIGIN_URL = "https://write-x.vercel.app";
+const BACKEND_ORIGIN_URL = "https://write-x-backend.vercel.app/";
 
 const signup = async (name, email, password, confirmpassword) => {
     try {
