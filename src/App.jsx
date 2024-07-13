@@ -9,6 +9,7 @@ import Career from './Pages/Career';
 import toast, { Toaster } from 'react-hot-toast';
 import Profile from './Pages/Profile';
 
+
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
