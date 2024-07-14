@@ -10,6 +10,7 @@ function Write() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [token, setToken] = useState("");
 
+    
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
