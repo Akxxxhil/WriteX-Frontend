@@ -36,19 +36,46 @@ function Write() {
     }
 
     return (
-        isAuthenticated ? (
-            <form onSubmit={CreatePostHandler}>
-                <label htmlFor="">Title</label>
-                <input onChange={(e) => setTitle(e.target.value)} value={title} type="text" />
-
-                <label htmlFor="">Description</label>
-                <input onChange={(e) => setDescription(e.target.value)} value={description} type="text" />
-
-                <button type="submit">Publish</button>
-            </form>
-        ) : (
-            <div>You are not eligible to write. Try after some time.</div>
-        )
+        <div className="min-h-screen bg-gradient-to-br from-[#f6d365] to-[#fda085] p-4">
+            {isAuthenticated ? (
+                <div className="flex flex-col lg:flex-row gap-4">
+                    <form onSubmit={CreatePostHandler} className="bg-white p-6 rounded shadow-md w-full lg:w-1/2">
+                        <h1 className="text-2xl font-bold mb-4">Write a New Blog</h1>
+                        <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title</label>
+                        <input
+                            id="title"
+                            onChange={(e) => setTitle(e.target.value)}
+                            value={title}
+                            type="text"
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                        />
+                        <label htmlFor="description" className="block text-sm font-medium text-gray-700 mt-4">Description</label>
+                        <textarea
+                            id="description"
+                            onChange={(e) => setDescription(e.target.value)}
+                            value={description}
+                            rows="10"
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                        ></textarea>
+                        <button
+                            type="submit"
+                            className="mt-6 w-full bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
+                        >
+                            Publish
+                        </button>
+                    </form>
+                    <div className="bg-white p-6 rounded shadow-md w-full lg:w-1/2">
+                        <h1 className="text-2xl font-bold mb-4">Preview</h1>
+                        <div className="text-lg font-semibold mb-2">{title}</div>
+                        <div>{description}</div>
+                    </div>
+                </div>
+            ) : (
+                <div className="flex items-center justify-center min-h-screen text-white text-center text-lg">
+                    You are not eligible to write. Try after some time.
+                </div>
+            )}
+        </div>
     );
 }
 
