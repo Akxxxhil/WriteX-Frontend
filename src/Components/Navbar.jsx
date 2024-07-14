@@ -15,7 +15,7 @@ function Navbar({ isLoggedIn, handleLogout }) {
 
                 {isLoggedIn ? (
                     <>
-                        <div>Write</div>
+                        <div className='cursor-pointer' onClick={()=>navigate("/write")}>Write</div>
                         <div className='cursor-pointer' onClick={() => navigate(`/profile/${userId}`)}>Profile</div>
                         <div className='cursor-pointer' onClick={() => {
                             handleLogout();

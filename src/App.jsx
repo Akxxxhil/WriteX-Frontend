@@ -8,6 +8,7 @@ import About from './Pages/About';
 import Career from './Pages/Career';
 import toast, { Toaster } from 'react-hot-toast';
 import Profile from './Pages/Profile';
+import Write from './Pages/Write';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
                 <Route path='/login' element={<Login handleLogin={handleLogin} />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/career' element={<Career />} />
+                <Route path='/write' element={<Write />} />
                 <Route path='/profile/:id' element={<Profile />} />
             </Routes>
             <Toaster />
