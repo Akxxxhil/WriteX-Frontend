@@ -9,6 +9,7 @@ import { BiUpvote } from "react-icons/bi";
 
 function Home() {
     const [blogs, setBlogs] = useState([]);
+    const [likedBlogs, setLikedBlogs] = useState({});
 
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -30,6 +31,13 @@ function Home() {
        });
     }
 
+    function handleLike(index) {
+        setLikedBlogs(prevState => ({
+            ...prevState,
+            [index]: !prevState[index]
+        }));
+    }
+
     return (
         <div className='m-6 px-6 py-3'>
             {blogs.length > 0 ? (
@@ -43,10 +51,14 @@ function Home() {
                             </div>
                             <div className='flex items-center gap-10'>
                                 <div>{new Date(item.createdAt).toDateString()}</div>
-                                <div className='cursor-pointer'><FaRegHeart size={"18px"} /></div>
+                                <div 
+                                    onClick={() => handleLike(index)} 
+                                    className={`cursor-pointer p-2 rounded-full ${likedBlogs[index] ? 'bg-red-600 text-white' : 'bg-white text-red-600'}`}
+                                >
+                                    <FaRegHeart size={"18px"} />
+                                </div>
                                 <div className='cursor-pointer' title='Retweet'><AiOutlineRetweet size={"18px"} /></div>
-                                <div className='cursor-pointer' title='Upvote'><BiUpvote size={"18px"}
-                                /></div>
+                                <div className='cursor-pointer' title='Upvote'><BiUpvote size={"18px"} /></div>
                             </div>
                         </div>
                     );
