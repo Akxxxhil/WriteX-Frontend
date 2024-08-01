@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const BACKEND_ORIGIN_URL = "https://write-x-backend.vercel.app";
-//const BACKEND_ORIGIN_URL = "http://localhost:3000";
+//const BACKEND_ORIGIN_URL = "https://write-x-backend.vercel.app";
+const BACKEND_ORIGIN_URL = "http://localhost:3000";
 
 const allblogList = async () => {
     try {
